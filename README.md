@@ -1,3 +1,0 @@
-# GROUP_PROJECT
-
-ayyyyyyyyyyyy
