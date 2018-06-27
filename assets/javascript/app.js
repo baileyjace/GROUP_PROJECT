@@ -7,3 +7,11 @@ var config = {
     messagingSenderId: "984419410414"
 };
 firebase.initializeApp(config);
+
+$("findRecipe").on("click", function() {
+
+})
+
+$("findRecipeIngredients").on("click", function() {
+    
+})
