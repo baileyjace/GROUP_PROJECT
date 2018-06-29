@@ -21,13 +21,32 @@ var getRecipe = function() {
     .then(function(response) {
         console.log(response);
     });
-}
+};
 
 $("#findRecipe").on("click", function(event) {
     event.preventDefault();
     getRecipe();
-})
+});
 
 $("#findRecipeIngredients").on("click", function() {
     
-})
+});
+
+var getRestaurant = function() {
+    var search = $("#restaurants").val().trim();
+    var queryURL = "https://developers.zomato.com/api/v2.1/cities?q="+search;
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+        headers: {"user-key": "ad3e6676b39ae63041f68de59afcb7e3"},
+        dataType: "json",
+    })
+    .then(function(response){
+        console.log(response);
+    });
+};
+
+$("#findRestaurants").on("click", function(event) {
+    event.preventDefault();
+    getRestaurant();
+});
