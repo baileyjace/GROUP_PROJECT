@@ -17,8 +17,8 @@ var ingredients = [
 // function for calling a random recipt
 var randomRecipe = function() {
     
-    var randomChoice = Math.floor(Math.random() * recipes.length + 1);
-    var search = recipes[randomChoice];
+    var randomChoice = Math.floor(Math.random() * ingredients.length + 1);
+    var search = ingredients[randomChoice];
     var appid = "897772a2";
     var appkey = "c193011b1550064d6ebf4a7adb2ac3e8";
     var queryURL = "https://api.edamam.com/search?q="+search+"&app_id="+appid+"&app_key="+appkey;
