@@ -52,6 +52,7 @@ var getRecipe = function() {
 // what happens when the find recipe buttion is clicked
 $("#findRecipe").on("click", function(event) {
     event.preventDefault();
+    // runs getRecipe function
     getRecipe();
     console.log($("#recipe").val().trim());
 });
@@ -65,6 +66,7 @@ $("#findRecipeIngredients").on("click", function() {
 $("#findRestaurants").on("click", function(event) {
     console.log("insideClick")
     event.preventDefault();
+    // runds findRestaurants function
     findRestaurants();
 });
     //getRestaurant();
