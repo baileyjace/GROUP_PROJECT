@@ -30,6 +30,7 @@ var randomRecipe = function() {
     
 };
 
+
 var getRecipe = function() {
     var search = $("#recipe").val().trim();
     var appid = "897772a2";
@@ -54,6 +55,46 @@ $("#findRecipeIngredients").on("click", function() {
     
 });
 
+
+$("#findRestaurants").on("click", function(event) {
+    console.log("insideClick")
+    event.preventDefault();
+    findRestaurants();
+});
+    //getRestaurant();
+
+
+    function findRestaurants() {
+        //first ajax call to get city ID from Zomato
+        var search = $("#restaurants").val().trim();
+        var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + search;
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            headers: {"user-key": "ad3e6676b39ae63041f68de59afcb7e3"},
+            dataType: "json",
+        })
+        .then(function(response){
+            console.log(response);
+            console.log(response.location_suggestions[0].id);
+        
+            //second call to get the actual info that I want using Zomato ID
+            var searchID = response.location_suggestions[0].id;
+            var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + searchID;
+            $.ajax({
+                url: queryURL,
+                method: "GET",
+                headers: {"user-key": "ad3e6676b39ae63041f68de59afcb7e3"},
+                dataType: "json",
+            })
+            .then(function(response2){
+                console.log(response2);
+        
+            });
+        });
+    };
+
+
 var getRestaurant = function() {
     var search = $("#restaurants").val().trim();
     var queryURL = "https://developers.zomato.com/api/v2.1/cities?q="+search;
@@ -72,3 +113,4 @@ $("#findRestaurants").on("click", function(event) {
     event.preventDefault();
     getRestaurant();
 });
+
