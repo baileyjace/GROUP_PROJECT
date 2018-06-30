@@ -8,6 +8,30 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var recipes = [
+    "Chicken", "Pork", "Beef", "Fish", "Pasta", "Mushroom", "Shrimp",
+];
+
+var randomRecipe = function() {
+    
+    var randomChoice = Math.floor(Math.random() * recipes.length + 1);
+    var search = recipes[randomChoice];
+    var appid = "897772a2";
+    var appkey = "c193011b1550064d6ebf4a7adb2ac3e8";
+    var queryURL = "https://api.edamam.com/search?q="+search+"&app_id="+appid+"&app_key="+appkey;
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+            
+      })
+    .then(function(response) {
+        console.log(response.hits[Math.floor(Math.random() * 10)]);
+    });
+    
+};
+
+randomRecipe();
+
 var getRecipe = function() {
     var search = $("#recipe").val().trim();
     var appid = "897772a2";
