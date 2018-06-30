@@ -9,7 +9,8 @@ var config = {
 firebase.initializeApp(config);
 
 var recipes = [
-    "Chicken", "Pork", "Beef", "Fish", "Pasta", "Mushroom", "Shrimp",
+    "Chicken", "Pork", "Beef", "Fish", "Pasta", "Mushroom", "Shrimp", "Tofu",
+    "Seitan",
 ];
 
 var randomRecipe = function() {
