@@ -143,11 +143,9 @@ $("#findRestaurants").on("click", function(event) {
 
     
     event.preventDefault();
-    getRestaurant
+    getRestaurant()
 
     
-
-});
 
 });
 
