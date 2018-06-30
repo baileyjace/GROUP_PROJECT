@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.ui.min.js"></script>
     
 </head>
 <body>
@@ -56,6 +58,17 @@
             </div>
             <form>
                 <div class="form-group">
+
+                    <label for="ingredients">Restaurants</label>
+                    <input type="ingredients" class="form-control" id="restaurants" placeholder="Houston, TX"> 
+                </div>
+                <button type="submit" class="btn btn-primary" id="findRestaurants">Find Restaurant!</button>
+            </form>
+            <div class="row">
+                <button class="btn btn-success" id="restaurant">nvm I'll eat out</button>
+            </div>
+            
+=======
                     <label for="restaurant">Restaurants</label>
                     <input type="location" class="form-control" id="location-input" placeholder="City"> 
                 </div>
@@ -65,6 +78,7 @@
             <div class="row">
                 <button class="btn btn-success" id="restaurant">nvm I'll eat out</button>
             </div>
+
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><strong>Restaurants Near You</strong></h3>
@@ -88,6 +102,7 @@
                     </table>
                 </div>
             </div>
+
 
         </div>
     </div>
