@@ -30,8 +30,6 @@ var randomRecipe = function() {
     
 };
 
-randomRecipe();
-
 var getRecipe = function() {
     var search = $("#recipe").val().trim();
     var appid = "897772a2";
