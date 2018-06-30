@@ -8,11 +8,13 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var recipes = [
+// some named ingredients for random recipes
+var ingredients = [
     "Chicken", "Pork", "Beef", "Fish", "Pasta", "Mushroom", "Shrimp", "Tofu",
     "Seitan",
 ];
 
+// function for calling a random recipt
 var randomRecipe = function() {
     
     var randomChoice = Math.floor(Math.random() * recipes.length + 1);
@@ -31,7 +33,7 @@ var randomRecipe = function() {
     
 };
 
-
+// function for getting an asked for recipe
 var getRecipe = function() {
     var search = $("#recipe").val().trim();
     var appid = "897772a2";
@@ -47,16 +49,19 @@ var getRecipe = function() {
     });
 };
 
+// what happens when the find recipe buttion is clicked
 $("#findRecipe").on("click", function(event) {
     event.preventDefault();
     getRecipe();
+    console.log($("#recipe").val().trim());
 });
 
+// what happens when the find recipe using ingredients button is pressed
 $("#findRecipeIngredients").on("click", function() {
     
 });
 
-
+// what happens when the find restaurants button is clicked
 $("#findRestaurants").on("click", function(event) {
     console.log("insideClick")
     event.preventDefault();
@@ -143,11 +148,11 @@ $("#findRestaurants").on("click", function(event) {
 
     
     event.preventDefault();
-    getRestaurant
+    getRestaurant()
 
     
 
 });
 
-});
+
 
