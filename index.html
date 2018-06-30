@@ -57,10 +57,7 @@
             <form>
                 <div class="form-group">
                     <label for="restaurant">Restaurants</label>
-                    <input type="location" class="form-control" id="city" placeholder="City"> 
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="cuisine" placeholder="Cuisine"> 
+                    <input type="location" class="form-control" id="location-input" placeholder="City"> 
                 </div>
                 <button type="submit" class="btn btn-primary" id="findRestaurants">Find Restaurant!</button>
             </form>
@@ -68,9 +65,33 @@
             <div class="row">
                 <button class="btn btn-success" id="restaurant">nvm I'll eat out</button>
             </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Restaurants Near You</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover" id='restaurant-table'>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Cuisine</th>
+                                <th>Pics</th>
+                                <th>Price Range</th>
+                                <th>User Rating</th>
+                                <th>Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--stuff goes here-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
-    
+  
     
     <script src="assets/javascript/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
