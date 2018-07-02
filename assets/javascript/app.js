@@ -8,15 +8,17 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var recipes = [
+// some named ingredients for random recipes
+var ingredients = [
     "Chicken", "Pork", "Beef", "Fish", "Pasta", "Mushroom", "Shrimp", "Tofu",
     "Seitan",
 ];
 
+// function for calling a random recipt
 var randomRecipe = function() {
     
-    var randomChoice = Math.floor(Math.random() * recipes.length + 1);
-    var search = recipes[randomChoice];
+    var randomChoice = Math.floor(Math.random() * ingredients.length + 1);
+    var search = ingredients[randomChoice];
     var appid = "897772a2";
     var appkey = "c193011b1550064d6ebf4a7adb2ac3e8";
     var queryURL = "https://api.edamam.com/search?q="+search+"&app_id="+appid+"&app_key="+appkey;
@@ -31,7 +33,7 @@ var randomRecipe = function() {
     
 };
 
-
+// function for getting an asked for recipe
 var getRecipe = function() {
     var search = $("#recipe").val().trim();
     var appid = "897772a2";
@@ -47,19 +49,24 @@ var getRecipe = function() {
     });
 };
 
+// what happens when the find recipe buttion is clicked
 $("#findRecipe").on("click", function(event) {
     event.preventDefault();
+    // runs getRecipe function
     getRecipe();
+    console.log($("#recipe").val().trim());
 });
 
+// what happens when the find recipe using ingredients button is pressed
 $("#findRecipeIngredients").on("click", function() {
     
 });
 
-
+// what happens when the find restaurants button is clicked
 $("#findRestaurants").on("click", function(event) {
     console.log("insideClick")
     event.preventDefault();
+    // runds findRestaurants function
     findRestaurants();
 });
     //getRestaurant();
@@ -148,4 +155,9 @@ $("#findRestaurants").on("click", function(event) {
     
 
 });
+
+
+
+
+=======
 
