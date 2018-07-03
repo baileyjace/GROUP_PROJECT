@@ -17,6 +17,9 @@ var ingredients = [
     "Seitan",
 ];
 
+// excluded ingredients
+var excludedIngredientsArray = [];
+
 // function for calling a random recipt
 var randomRecipe = function() {
     
@@ -41,7 +44,12 @@ var getRecipe = function() {
     var search = $("#recipe").val().trim();
     var appid = "897772a2";
     var appkey = "c193011b1550064d6ebf4a7adb2ac3e8";
-    var queryURL = "https://api.edamam.com/search?q="+search+"&app_id="+appid+"&app_key="+appkey;
+    var excludeIngredients = ""
+    for (i=0; i < excludedIngredientsArray.length; i++) {
+        excludeIngredients += "&excluded="+excludedIngredientsArray[i];
+    };
+    console.log(excludeIngredients);
+    var queryURL = "https://api.edamam.com/search?q="+search+"&app_id="+appid+"&app_key="+appkey+excludeIngredients;
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -60,6 +68,15 @@ $("#findRecipe").on("click", function(event) {
     console.log($("#recipe").val().trim());
 });
 
+// what happen when you click the exclude button
+$("#excludeIngredient").on("click", function(event) {
+    event.preventDefault();
+    // runs excludeIngredient function
+    var excludedIngredient = $("#exclude-ingredient").val().trim();
+    excludedIngredientsArray.push(excludedIngredient);
+    console.log(excludedIngredient);
+    console.log(excludedIngredientsArray)
+})
 
 // save recipe function for results of search
 $("#save-recipe").on("click", function(event) {
@@ -90,6 +107,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 $("#findRecipeIngredients").on("click", function() {
     
 });
+
 
 // what happens when the find restaurants button is clicked
 $("#findRestaurants").on("click", function(event) {
