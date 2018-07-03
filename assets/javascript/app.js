@@ -1,3 +1,4 @@
+// firebase config
 var config = {
     apiKey: "AIzaSyB7p3GymKOtuclgt-wKoWudxNcGaIQR7pQ",
     authDomain: "wtfshouldieat.firebaseapp.com",
@@ -7,6 +8,8 @@ var config = {
     messagingSenderId: "984419410414"
 };
 firebase.initializeApp(config);
+
+var database = firebase.database();
 
 // some named ingredients for random recipes
 var ingredients = [
@@ -49,12 +52,38 @@ var getRecipe = function() {
     });
 };
 
-// what happens when the find recipe buttion is clicked
+// what happens when the find recipe button is clicked
 $("#findRecipe").on("click", function(event) {
     event.preventDefault();
     // runs getRecipe function
     getRecipe();
     console.log($("#recipe").val().trim());
+});
+
+
+// save recipe function for results of search
+$("#save-recipe").on("click", function(event) {
+    event.preventDefault();
+
+    // needs work - what are we pulling from the api? what do we want to save?
+    var savedRecipe = {
+        recipe: recipe
+    }
+
+    database.ref().push(savedRecipe);
+
+    console.log(savedRecipe.recipe);
+
+    return false;
+});
+
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+    console.log(childSnapshot.val());
+
+    var firebaseRecipe = childSnapshot.val().recipe;
+
+    // append firebase results to recipe table
+    $("#recipe-table > tbody").append("<tr><td>" + firebaseRecipe + "</td></tr>");
 });
 
 // what happens when the find recipe using ingredients button is pressed
@@ -159,5 +188,5 @@ $("#findRestaurants").on("click", function(event) {
 
 
 
-=======
+
 
