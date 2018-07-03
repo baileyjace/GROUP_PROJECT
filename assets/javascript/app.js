@@ -103,12 +103,6 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
     $("#recipe-table > tbody").append("<tr><td>" + firebaseRecipe + "</td></tr>");
 });
 
-// what happens when the find recipe using ingredients button is pressed
-$("#findRecipeIngredients").on("click", function() {
-    
-});
-
-
 // what happens when the find restaurants button is clicked
 $("#findRestaurants").on("click", function(event) {
     console.log("insideClick")
