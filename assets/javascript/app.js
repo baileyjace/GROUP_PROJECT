@@ -142,10 +142,30 @@ var ingredients = [
     "Seitan",
 ];
 
+
+var gramsToOz = function() {
+    var weight = (response.weight) / 28.3495;
+    var ozWeight = weight;
+    if (parseInt(weight) > 16) {
+        var pounds = parseInt((weight) / 16) | 0;
+        console.log(pounds);
+        console.log(weight);        
+    };
+    while (parseInt(ozWeight) >= 16) {
+        var ozWeight = Math.round(parseInt(ozWeight) - 16);
+    };
+    
+    var convertedWeight = (pounds + " lbs " + ozWeight + " oz")
+    console.log(convertedWeight);
+}
+
+
+
 // excluded ingredients
 var excludedIngredientsArray = [];
 
 // function for calling a random recipt
+
 var randomRecipe = function() {
     
     var randomChoice = Math.floor(Math.random() * ingredients.length + 1);
@@ -164,7 +184,10 @@ var randomRecipe = function() {
     
 };
 
+
+
 // function for getting an asked for recipe
+
 var getRecipe = function() {
     var search = $("#recipe").val().trim();
     var appid = "897772a2";
