@@ -23,6 +23,9 @@
       <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  
+
     <title>wtfshouldieat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
@@ -33,6 +36,7 @@
     <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.ui.min.js"></script>
     
+
 
 </head>
 
@@ -52,7 +56,7 @@
                     <img src="assets/images/milk-eggs.png" alt="Dairy" height="50" width="50" class="Ing_Icon">
                     <a href="#dairySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dairy</a>                  
                     <ul class="collapse list-unstyled" id="dairySubmenu">
-                        <li>                            
+                        <!--<li>                            
                             <label class="checkbox-inline">
                                 <input type="checkbox" value="Dairy Ing 1">Dairy Ing 1
                             </label>
@@ -71,14 +75,14 @@
                             <label class="checkbox-inline">
                                 <input type="checkbox" value="Dairy Ing 4">Dairy Ing 4
                             </label>
-                        </li>
+                        </li>-->
                     </ul>
                 </li>               
                 <li>
                     <img src="assets/images//Vegetables.jpg" alt="Dairy" height="50" width="50" class="Ing_Icon">
                     <a href="#veggieSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Vegetables</a>
                     <ul class="collapse list-unstyled" id="veggieSubmenu">
-                            <li>                            
+                            <!--<li>                            
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="Veg Ing 1">Veg Ing 1
                                     </label>
@@ -97,14 +101,14 @@
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="Veg Ing 4">Veg Ing 4
                                     </label>
-                            </li>
+                            </li>-->
                     </ul>
                 </li>
                 <li>
                     <img src="assets/images//fruits.jpg" alt="Dairy" height="50" width="50" class="Ing_Icon">
                     <a href="#fruitsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Fruits</a>
                     <ul class="collapse list-unstyled" id="fruitsSubmenu">
-                            <li>                            
+                            <!--<li>                            
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="Fruit Ing 1">Fruit Ing 1
                                     </label>
@@ -123,14 +127,14 @@
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="Fruit Ing 4">Fruit Ing 4
                                     </label>
-                            </li>
+                            </li>-->
                     </ul>
                 </li>
                 <li>
                     <img src="assets/images//BakingAndGrains.jpg" alt="Dairy" height="50" width="50" class="Ing_Icon">
                     <a href="#BGSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Baking & Grains</a>
                     <ul class="collapse list-unstyled" id="BGSubmenu">
-                            <li>                            
+                            <!--<li>                            
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="BG Ing 1">BG Ing 1
                                     </label>
@@ -149,47 +153,49 @@
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="BG Ing 4">BG Ing 4
                                     </label>
-                            </li>
+                            </li>-->
                     </ul>
                 </li>              
             </ul>
             <button id="searchButton" type="submit" class="btn btn-primary">Search</button>
+            <button id="favouritesButton" type="submit" class="btn">Favorites</button>
         </nav>
 
         <!-- Page Content  -->
         <div id="content">
-
+            <img class="col-md-12" class="logo" src = "assets/images/Logo.jpg">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
+                        <span>Toggle Sidebar</span>                     
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-
+                  
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
+                        <ul id = "pageNumberDiv" class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Page 1</a>
+                                <a class="nav-link" href="#">1</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Page 2</a>
+                                <a class="nav-link" href="#">2</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Page 3</a>
+                                <a class="nav-link" href="#">3</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Page 4</a>
+                                <a class="nav-link" href="#">4</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
-            <div class="container">
+            <div class="container">    
+                             
                <!-- <div class="row">
                   <div class="col-md-4">
                         <div class="card" style="width: 18rem;">
@@ -273,14 +279,21 @@
 
             <div class="line"></div>
 
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="front">
+                        <!-- front content -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-            <div class="line"></div>
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                        <h3>Lorem Ipsum Dolor</h3>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+            
             <div class="line"></div>
 
             <h3>Lorem Ipsum Dolor</h3>
@@ -302,8 +315,8 @@
   <!-- Script -->
   <script src="assets/javascript/app.js"></script>
     
-    </script>
-=======
+  </script>
+  
     <div class="container">
         <div class="row">
             <div class="col">
