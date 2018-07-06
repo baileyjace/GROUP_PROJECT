@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.ui.min.js"></script>
     
 </head>
 <body>
@@ -56,22 +58,44 @@
             </div>
             <form>
                 <div class="form-group">
-                    <label for="ingredients">Restaurants</label>
-                    <input type="ingredients" class="form-control" id="restaurants" placeholder="Houston, TX"> 
+
+                    <label for="restaurants">Restaurants</label>
+                    <input type="restaurants" class="form-control" id="restaurants" placeholder="Houston, TX"> 
                 </div>
                 <button type="submit" class="btn btn-primary" id="findRestaurants">Find Restaurant!</button>
             </form>
-            <div class="row">
-                <button class="btn btn-success" id="restaurant">nvm I'll eat out</button>
-            </div>
             
+            
+
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Restaurants Near You</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover" id='restaurant-table'>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Cuisine</th>
+                                <th>User Rating</th>
+                                <th>Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--stuff goes here-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
         </div>
     </div>
-    
-    
-    <script src="assets/javascript/app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    
-</body>
-</html>
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+    </body>
+    </html>
+  
