@@ -14,6 +14,13 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.ui.min.js"></script>
+    
+
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -109,6 +116,51 @@
                
             </div>
 
+            <form>
+                <div class="form-group">
+
+                    <label for="restaurants">Restaurants</label>
+                    <input type="restaurants" class="form-control" id="restaurants" placeholder="Houston, TX"> 
+                </div>
+                <button type="submit" class="btn btn-primary" id="findRestaurants">Find Restaurant!</button>
+            </form>
+            
+            
+
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Restaurants Near You</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover" id='restaurant-table'>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Cuisine</th>
+                                <th>User Rating</th>
+                                <th>Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--stuff goes here-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+    </body>
+    </html>
+  
+=======
+
 
             <div class="line"></div>
 
@@ -150,3 +202,4 @@
     </body>
     </html>
     
+
