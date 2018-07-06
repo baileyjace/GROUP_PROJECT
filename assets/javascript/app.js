@@ -1,5 +1,22 @@
 
 
+     
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBzRDQfdggjjoQ5pMWpNe3H7A_inNvkx0s",
+    authDomain: "employeedatabase-8d6ab.firebaseapp.com",
+    databaseURL: "https://employeedatabase-8d6ab.firebaseio.com",
+    projectId: "employeedatabase-8d6ab",
+    storageBucket: "employeedatabase-8d6ab.appspot.com",
+    messagingSenderId: "358459002360"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+     
+     
      var dairyIngredients = ["butter", "egg milk", "parmesan", "cheddar", "american cheese", "sour cream", "cream cheese", "mozzarella", "yogurt", "cream", "evaporated milk", "whipped cream", "half and half"]
      
      var vegetableIngredients = ["onion", "garlic", "tomato", "potato", "carrot", "bell pepper", "basil", "parsley", "broccoli", "corn", "spinach", "mushroom",
@@ -105,12 +122,81 @@ $(document).ready(function () {
         $( ".container" ).empty();
         GetRecipe();
 
-        console.log("from: " + from);
-        console.log("to: " + to);
+        //console.log("from: " + from);
+        //console.log("to: " + to);
 
       
     });
 
+  
+    database.ref().on("value", function(snapshot, prevChildKey) {
+
+        var numChildren =  snapshot.numChildren()
+
+        $("#favouritesButton").text(`Favorites ( ${numChildren} )`)
+
+        console.log(numChildren);
+
+   
+            snapshot.forEach(function(childSnapshot) {
+              var childData = childSnapshot.val();
+              console.log(childData);
+            });
+        
+        
+      });
+
+     
+
+    //$( ".favourite" ).on( "click", function() {
+        //console.log("favourite");
+       //$( this ).attr('src', "assets/images/favourite_icon.png");
+      //});
+
+      $('body').on('click', 'img.favourite', function() {
+        event.preventDefault();      
+        var currentImage = $( this ).attr('src');
+        var favouriteRecipeLabel = $( this ).parent( ".card-text" ).text();
+        var favouriteImageURL = $( this ).parents( ".card").find(".card-img-top").attr('src');
+        var favouriteRecipeURL = $( this ).parents( "a").attr('href');
+
+        if(currentImage !== "assets/images/favourite_icon.png"){
+                $( this ).attr('src', "assets/images/favourite_icon.png");
+
+              
+               
+
+                // Creates local "temporary" object for holding favourite recipe data
+                var favRecipe = {
+                    RecipeName: favouriteRecipeLabel,
+                    ImageURL: favouriteImageURL,    
+                    RecipeURL: favouriteRecipeURL              
+                };
+
+                // Uploads favourite recipe data to the database
+                database.ref().push(favRecipe);
+
+                // Logs everything to console
+                //console.log(favouriteRecipeLabel);
+                //console.log(favouriteImageURL);   
+                //console.log(favouriteRecipeURL);                  
+        }
+        else{
+                $( this ).attr('src', "assets/images/favourite_iconMain.jpg");
+                database.ref().orderByChild('RecipeURL').equalTo(favouriteRecipeURL)
+                          .once('value').then(function(snapshot) {
+                             snapshot.forEach(function(childSnapshot) {
+                                  //remove each child
+                                  database.ref().child(childSnapshot.key).remove();
+                                  console.log("removed");
+                                  console.log(favouriteRecipeLabel);
+                     });
+                });
+        }
+        
+    });
+
+    
 
     function GetRecipe() {
         var search = searchTerms;
@@ -139,9 +225,9 @@ $(document).ready(function () {
            //}
 
 
-            console.log(response.count);
+            //console.log(response.count);
 
-            console.log(queryURL);
+            //console.log(queryURL);
 
 
         
@@ -155,18 +241,21 @@ $(document).ready(function () {
         newRow.attr("id", "row_" + rowID);
         $(".container").append(newRow);
 
+        //console.log(response);
         //console.log("Recipies: " + recipes.length);
 
         for(var i = 0; i < recipes.length ; i++){                                 
 
            var imageURL = response.hits[i].recipe.image;
            var recipeLabel = response.hits[i].recipe.label;
+           var recipeURL = response.hits[i].recipe.shareAs;
+            var ingredients = response.hits[i].recipe.ingredientLines;
 
          
             //console.log(rowID);
             //console.log(columnsCount);
             //console.log(recipeLabel);
-            //console.log(imageURL);
+            //console.log(ingredients);
             
 
             if(columnsCount == 3)
@@ -178,9 +267,30 @@ $(document).ready(function () {
                newRow.attr("id", "row_" + rowID);
 
 
-               newRow.append("<div class=\"col-md-4\"> <div class=\"card\" style=\"width: 18rem;\"> <img class=\"card-img-top\" src=\"" +
+               //newRow.append("<div class=\"flip-container\" ontouchstart=\"this.classList.toggle('click');\"> <div class=\"flipper\"> <div class=\"front\">" + 
+               //"<div class=\"col-md-4\"> <div class=\"card\" style=\"width: 18rem;\"> <img class=\"card-img-top\" src=\"" +
+               //imageURL + "\" alt=\"Card image cap\"> <div class=\"card-body\"> <p class=\"card-text\">" +
+               //recipeLabel + "</div></div></div></div> <div class=\"back\">"  + ingredients + "</div></div></div>"
+
+
+               newRow.append("<a href=\"" + recipeURL + "\" target = \"_blank\"><div class=\"col-md-4\"> <div class=\"card\" style=\"width: 18rem;\"> <img class=\"card-img-top\" src=\"" +
                imageURL + "\" alt=\"Card image cap\"> <div class=\"card-body\"> <p class=\"card-text\">" +
-               recipeLabel + "</div></div></div>");
+               recipeLabel + "<img class=\"favourite\" src=\"assets/images/favourite_iconMain.jpg\"></div></div></div></a>");
+
+
+              // <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+              // <div class="flipper">
+                  // <div class="front">
+                       //<!-- front content -->
+                       //<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                   //</div>
+                   //<div class="back">
+                       //<!-- back content -->
+                       //<h3>Lorem Ipsum Dolor</h3>
+                  // </div>
+               //</div>
+          // </div>
                  
                $(".container").append(newRow);
                
@@ -191,9 +301,15 @@ $(document).ready(function () {
                 columnsCount ++;
 
                 //console.log("I am displaying " + recipeLabel); 
-                newRow.append("<div class=\"col-md-4\"> <div class=\"card\" style=\"width: 18rem;\"> <img class=\"card-img-top\" src=\"" +
+                //newRow.append("<div class=\"flip-container\" ontouchstart=\"this.classList.toggle('click');\"> <div class=\"flipper\"> <div class=\"front\">" + 
+                //"<div class=\"col-md-4\"> <div class=\"card\" style=\"width: 18rem;\"> <img class=\"card-img-top\" src=\"" +
+                //imageURL + "\" alt=\"Card image cap\"> <div class=\"card-body\"> <p class=\"card-text\">" +
+                //recipeLabel + "</div></div></div></div> <div class=\"back\">"  + ingredients + "</div></div></div>" );      
+                
+                newRow.append("<a href=\"" + recipeURL + "\" target = \"_blank\"><div class=\"col-md-4\"> <div class=\"card\" style=\"width: 18rem;\"> <img class=\"card-img-top\" src=\"" +
                 imageURL + "\" alt=\"Card image cap\"> <div class=\"card-body\"> <p class=\"card-text\">" +
-                recipeLabel + "</div></div></div>");                                  
+                recipeLabel + "<img class=\"favourite\" src=\"assets/images/favourite_iconMain.jpg\"></div></div></div></a>");
+ 
                
             }            
         }
