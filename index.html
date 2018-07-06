@@ -19,10 +19,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-      <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   
 </head>
 
@@ -41,104 +41,28 @@
                     <img src="assets/images/milk-eggs.png" alt="Dairy" height="50" width="50" class="Ing_Icon">
                     <a href="#dairySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dairy</a>                  
                     <ul class="collapse list-unstyled" id="dairySubmenu">
-                        <!--<li>                            
-                            <label class="checkbox-inline">
-                                <input type="checkbox" value="Dairy Ing 1">Dairy Ing 1
-                            </label>
-                        </li>                      
-                        <li>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" value="Dairy Ing 2">Dairy Ing 2
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" value="Dairy Ing 3">Dairy Ing 3
-                             </label>
-                        </li>
-                        <li>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" value="Dairy Ing 4">Dairy Ing 4
-                            </label>
-                        </li>-->
+                         <!--Dairy ingredients will be displayed here-->
                     </ul>
                 </li>               
                 <li>
                     <img src="assets/images//Vegetables.jpg" alt="Dairy" height="50" width="50" class="Ing_Icon">
                     <a href="#veggieSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Vegetables</a>
                     <ul class="collapse list-unstyled" id="veggieSubmenu">
-                            <!--<li>                            
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Veg Ing 1">Veg Ing 1
-                                    </label>
-                                </li>                      
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Veg Ing 2">Veg Ing 2
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Veg Ing 3">Veg Ing 3
-                                     </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Veg Ing 4">Veg Ing 4
-                                    </label>
-                            </li>-->
+                            <!--Vegetables ingredients will be displayed here-->
                     </ul>
                 </li>
                 <li>
                     <img src="assets/images//fruits.jpg" alt="Dairy" height="50" width="50" class="Ing_Icon">
                     <a href="#fruitsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Fruits</a>
                     <ul class="collapse list-unstyled" id="fruitsSubmenu">
-                            <!--<li>                            
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Fruit Ing 1">Fruit Ing 1
-                                    </label>
-                                </li>                      
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Fruit Ing 2">Fruit Ing 2
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Fruit Ing 3">Fruit Ing 3
-                                     </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Fruit Ing 4">Fruit Ing 4
-                                    </label>
-                            </li>-->
+                            <!--Fruits ingredients will be displayed here-->
                     </ul>
                 </li>
                 <li>
                     <img src="assets/images//BakingAndGrains.jpg" alt="Dairy" height="50" width="50" class="Ing_Icon">
                     <a href="#BGSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Baking & Grains</a>
                     <ul class="collapse list-unstyled" id="BGSubmenu">
-                            <!--<li>                            
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="BG Ing 1">BG Ing 1
-                                    </label>
-                                </li>                      
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="BG Ing 2">BG Ing 2
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="BG Ing 3">BG Ing 3
-                                     </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="BG Ing 4">BG Ing 4
-                                    </label>
-                            </li>-->
+                            <!--bakery and grains ingredients will be displayed here-->
                     </ul>
                 </li>              
             </ul>
@@ -181,84 +105,7 @@
 
             <div class="container">    
                              
-               <!-- <div class="row">
-                  <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        </div>
-                  </div>
-                  <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        </div>
-                  </div>
-                  <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        </div>
-                  </div>
-                </div>
-                <div class="row">
-                        <div class="col-md-4">
-                              <div class="card" style="width: 18rem;">
-                              <img class="card-img-top" src="..." alt="Card image cap">
-                              <div class="card-body">
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                              </div>
-                        </div>
-                        <div class="col-md-4">
-                              <div class="card" style="width: 18rem;">
-                              <img class="card-img-top" src="..." alt="Card image cap">
-                              <div class="card-body">
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                              </div>
-                        </div>
-                        <div class="col-md-4">
-                              <div class="card" style="width: 18rem;">
-                              <img class="card-img-top" src="..." alt="Card image cap">
-                              <div class="card-body">
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                              </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                            <div class="col-md-4">
-                                  <div class="card" style="width: 18rem;">
-                                  <img class="card-img-top" src="..." alt="Card image cap">
-                                  <div class="card-body">
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  </div>
-                                  </div>
-                            </div>
-                            <div class="col-md-4">
-                                  <div class="card" style="width: 18rem;">
-                                  <img class="card-img-top" src="..." alt="Card image cap">
-                                  <div class="card-body">
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  </div>
-                                  </div>
-                            </div>
-                            <div class="col-md-4">
-                                  <div class="card" style="width: 18rem;">
-                                  <img class="card-img-top" src="..." alt="Card image cap">
-                                  <div class="card-body">
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  </div>
-                                  </div>
-                            </div>
-                          </div>-->
+                    <!-- recipe cards will be displayed here -->
             </div>
 
 
@@ -267,12 +114,12 @@
             <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
                     <div class="front">
-                        <!-- front content -->
+                        <!-- card front content -->
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                     </div>
                     <div class="back">
-                        <!-- back content -->
+                        <!-- card back content -->
                         <h3>Lorem Ipsum Dolor</h3>
                     </div>
                 </div>
@@ -285,22 +132,16 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </div>
-
    
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script> 
+    <!-- Script -->
+    <script src="assets/javascript/app.js"></script>    
    
-
-
-  <!-- Script -->
-  <script src="assets/javascript/app.js"></script>
-    
-    </script>
 </body>
 
 </html>
