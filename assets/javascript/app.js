@@ -189,12 +189,13 @@ $(document).ready(function () {
         newRow.addClass( "row" );
         newRow.attr("id", "row_" + rowID);
         $(".container").append(newRow);
+        console.log(recipes);
 
         for(var i = 0; i < recipes.length ; i++){                                 
 
            var imageURL = recipes[i].ImageURL;
            var recipeLabel = recipes[i].RecipeName;
-           var recipeURL = recipes[i].url;
+           var recipeURL = recipes[i].RecipeURL;
            var favoriteIcon = "assets/images/favourite_icon.png";           
            
            //3 cards per row
