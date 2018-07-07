@@ -250,4 +250,10 @@ a.article:hover {
     color: white;
 }
 
+#randomRecipeButton {
 
+    margin-top: 20px;
+    display: block;
+    background-color: red;
+    color: white;
+}

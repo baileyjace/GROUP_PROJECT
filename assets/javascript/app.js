@@ -247,7 +247,7 @@ $(document).ready(function () {
 
     
     //Methos to get the recipes by ajax call
-    function GetRecipe() {
+    var GetRecipe = function() {
         var search = searchTerms;
         var appid = "897772a2";
         var appkey = "c193011b1550064d6ebf4a7adb2ac3e8";
@@ -313,16 +313,16 @@ $(document).ready(function () {
         }
 
         });
-     }     
+     };     
      GetRecipe();    
 
-});
+
 
 
 // some named ingredients for random recipes
 var ingredients = [
-    "Chicken", "Pork", "Beef", "Fish", "Pasta", "Mushroom", "Shrimp", "Tofu",
-    "Seitan",
+    "Pork", "Beef", "Fish", "Pasta", "Mushroom", "Shrimp", "Tofu",
+    "Seitan"
 ];
 
 
@@ -363,9 +363,17 @@ var randomRecipe = function() {
       })
     .then(function(response) {
         console.log(response.hits[Math.floor(Math.random() * 10)]);
-    });
-    
+    });   
 };
+
+$("#randomRecipeButton").on("click", function(event) {
+    event.preventDefault();
+    var randomChoice = Math.floor(Math.random() * ingredients.length + 1);
+    searchTerms = ingredients[randomChoice];
+    GetRecipe();
+    console.log(searchTerms);
+
+});
 
 // what happen when you click the exclude button
 $("#excludeIngredient").on("click", function(event) {
@@ -496,6 +504,7 @@ $("#findRestaurants").on("click", function(event) {
 
 });
 
+});
 
 
 
