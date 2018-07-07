@@ -13,7 +13,7 @@
     var database = firebase.database();
      
      
-    var dairyIngredients = ["butter", "egg milk", "parmesan", "cheddar", "american cheese", "sour cream", "cream cheese", "mozzarella", "yogurt", "cream", "evaporated milk", "whipped cream", "half and half"]
+    var dairyIngredients = ["butter", "egg", "milk", "parmesan", "cheddar", "american cheese", "sour cream", "cream cheese", "mozzarella", "yogurt", "cream", "evaporated milk", "whipped cream", "half and half"]
      
     var vegetableIngredients = ["onion", "garlic", "tomato", "potato", "carrot", "bell pepper", "basil", "parsley", "broccoli", "corn", "spinach", "mushroom",
      "green beans", "ginger", "chili", "pepper", "celery", "rosemary", "salad greens", "red onion", "cucumber", "sweet potato", "pickle", "avocado", "zucchini", 
@@ -46,24 +46,28 @@
      //Loads the ingredients list
     function LoadIngredients() {       
 
+            dairyIngredients.sort();
             for(var i = 0; i < dairyIngredients.length ; i++){
             var dairyDiv = $("#dairySubmenu");
             dairyDiv.append("<li> <label class=\"checkbox-inline\"> <input type=\"checkbox\" value=\"" + dairyIngredients[i]
                 + "\">" + dairyIngredients[i] + "</label>" + "</li>");
             }
 
+            vegetableIngredients.sort();
             for(var i = 0; i < vegetableIngredients.length ; i++){
                 var veggieDiv = $("#veggieSubmenu");
                 veggieDiv.append("<li> <label class=\"checkbox-inline\"> <input type=\"checkbox\" value=\"" + vegetableIngredients[i]
                 + "\">" + vegetableIngredients[i] + "</label>" + "</li>");
             }
 
+            fruitIngredients.sort();
             for(var i = 0; i < fruitIngredients.length ; i++){
                 var fruitDiv = $("#fruitsSubmenu");
                 fruitDiv.append("<li> <label class=\"checkbox-inline\"> <input type=\"checkbox\" value=\"" + fruitIngredients[i]
                 + "\">" + fruitIngredients[i] + "</label>" + "</li>");
             }
-
+            
+            bakingGrainsIngredients.sort();
             for(var i = 0; i < bakingGrainsIngredients.length ; i++){
                 var BGSubmenuDiv = $("#BGSubmenu");
                 BGSubmenuDiv.append("<li> <label class=\"checkbox-inline\"> <input type=\"checkbox\" value=\"" + bakingGrainsIngredients[i]
@@ -190,7 +194,7 @@ $(document).ready(function () {
 
            var imageURL = recipes[i].ImageURL;
            var recipeLabel = recipes[i].RecipeName;
-           var recipeURL = recipes[i].RecipeURL;
+           var recipeURL = recipes[i].url;
            var favoriteIcon = "assets/images/favourite_icon.png";           
            
            //3 cards per row
@@ -271,7 +275,7 @@ $(document).ready(function () {
 
             var imageURL = response.hits[i].recipe.image;
             var recipeLabel = response.hits[i].recipe.label;
-            var recipeURL = response.hits[i].recipe.shareAs;
+            var recipeURL = response.hits[i].recipe.url;
             var ingredients = response.hits[i].recipe.ingredientLines;
             var favoriteIcon = "assets/images/favourite_iconMain.jpg";
             
@@ -314,18 +318,6 @@ $(document).ready(function () {
 
 });
 
-// firebase config
-var config = {
-    apiKey: "AIzaSyB7p3GymKOtuclgt-wKoWudxNcGaIQR7pQ",
-    authDomain: "wtfshouldieat.firebaseapp.com",
-    databaseURL: "https://wtfshouldieat.firebaseio.com",
-    projectId: "wtfshouldieat",
-    storageBucket: "wtfshouldieat.appspot.com",
-    messagingSenderId: "984419410414"
-};
-firebase.initializeApp(config);
-
-var database = firebase.database();
 
 // some named ingredients for random recipes
 var ingredients = [
@@ -374,38 +366,6 @@ var randomRecipe = function() {
     });
     
 };
-
-
-
-// function for getting an asked for recipe
-
-var getRecipe = function() {
-    var search = $("#recipe").val().trim();
-    var appid = "897772a2";
-    var appkey = "c193011b1550064d6ebf4a7adb2ac3e8";
-    var excludeIngredients = ""
-    for (i=0; i < excludedIngredientsArray.length; i++) {
-        excludeIngredients += "&excluded="+excludedIngredientsArray[i];
-    };
-    console.log(excludeIngredients);
-    var queryURL = "https://api.edamam.com/search?q="+search+"&app_id="+appid+"&app_key="+appkey+excludeIngredients;
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-            
-      })
-    .then(function(response) {
-        console.log(response);
-    });
-};
-
-// what happens when the find recipe button is clicked
-$("#findRecipe").on("click", function(event) {
-    event.preventDefault();
-    // runs getRecipe function
-    getRecipe();
-    console.log($("#recipe").val().trim());
-});
 
 // what happen when you click the exclude button
 $("#excludeIngredient").on("click", function(event) {
