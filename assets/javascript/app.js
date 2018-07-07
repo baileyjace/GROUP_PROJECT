@@ -190,7 +190,7 @@ $(document).ready(function () {
 
            var imageURL = recipes[i].ImageURL;
            var recipeLabel = recipes[i].RecipeName;
-           var recipeURL = recipes[i].RecipeURL;
+           var recipeURL = recipes[i].url;
            var favoriteIcon = "assets/images/favourite_icon.png";           
            
            //3 cards per row
@@ -271,7 +271,7 @@ $(document).ready(function () {
 
             var imageURL = response.hits[i].recipe.image;
             var recipeLabel = response.hits[i].recipe.label;
-            var recipeURL = response.hits[i].recipe.shareAs;
+            var recipeURL = response.hits[i].recipe.url;
             var ingredients = response.hits[i].recipe.ingredientLines;
             var favoriteIcon = "assets/images/favourite_iconMain.jpg";
             
@@ -314,18 +314,6 @@ $(document).ready(function () {
 
 });
 
-// firebase config
-var config = {
-    apiKey: "AIzaSyB7p3GymKOtuclgt-wKoWudxNcGaIQR7pQ",
-    authDomain: "wtfshouldieat.firebaseapp.com",
-    databaseURL: "https://wtfshouldieat.firebaseio.com",
-    projectId: "wtfshouldieat",
-    storageBucket: "wtfshouldieat.appspot.com",
-    messagingSenderId: "984419410414"
-};
-firebase.initializeApp(config);
-
-var database = firebase.database();
 
 // some named ingredients for random recipes
 var ingredients = [
