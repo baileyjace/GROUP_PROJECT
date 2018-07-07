@@ -13,7 +13,7 @@
     var database = firebase.database();
      
      
-    var dairyIngredients = ["butter", "egg milk", "parmesan", "cheddar", "american cheese", "sour cream", "cream cheese", "mozzarella", "yogurt", "cream", "evaporated milk", "whipped cream", "half and half"]
+    var dairyIngredients = ["butter", "egg", "milk", "parmesan", "cheddar", "american cheese", "sour cream", "cream cheese", "mozzarella", "yogurt", "cream", "evaporated milk", "whipped cream", "half and half"]
      
     var vegetableIngredients = ["onion", "garlic", "tomato", "potato", "carrot", "bell pepper", "basil", "parsley", "broccoli", "corn", "spinach", "mushroom",
      "green beans", "ginger", "chili", "pepper", "celery", "rosemary", "salad greens", "red onion", "cucumber", "sweet potato", "pickle", "avocado", "zucchini", 
@@ -362,38 +362,6 @@ var randomRecipe = function() {
     });
     
 };
-
-
-
-// function for getting an asked for recipe
-
-var getRecipe = function() {
-    var search = $("#recipe").val().trim();
-    var appid = "897772a2";
-    var appkey = "c193011b1550064d6ebf4a7adb2ac3e8";
-    var excludeIngredients = ""
-    for (i=0; i < excludedIngredientsArray.length; i++) {
-        excludeIngredients += "&excluded="+excludedIngredientsArray[i];
-    };
-    console.log(excludeIngredients);
-    var queryURL = "https://api.edamam.com/search?q="+search+"&app_id="+appid+"&app_key="+appkey+excludeIngredients;
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-            
-      })
-    .then(function(response) {
-        console.log(response);
-    });
-};
-
-// what happens when the find recipe button is clicked
-$("#findRecipe").on("click", function(event) {
-    event.preventDefault();
-    // runs getRecipe function
-    getRecipe();
-    console.log($("#recipe").val().trim());
-});
 
 // what happen when you click the exclude button
 $("#excludeIngredient").on("click", function(event) {
