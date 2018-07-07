@@ -46,24 +46,28 @@
      //Loads the ingredients list
     function LoadIngredients() {       
 
+            dairyIngredients.sort();
             for(var i = 0; i < dairyIngredients.length ; i++){
             var dairyDiv = $("#dairySubmenu");
             dairyDiv.append("<li> <label class=\"checkbox-inline\"> <input type=\"checkbox\" value=\"" + dairyIngredients[i]
                 + "\">" + dairyIngredients[i] + "</label>" + "</li>");
             }
 
+            vegetableIngredients.sort();
             for(var i = 0; i < vegetableIngredients.length ; i++){
                 var veggieDiv = $("#veggieSubmenu");
                 veggieDiv.append("<li> <label class=\"checkbox-inline\"> <input type=\"checkbox\" value=\"" + vegetableIngredients[i]
                 + "\">" + vegetableIngredients[i] + "</label>" + "</li>");
             }
 
+            fruitIngredients.sort();
             for(var i = 0; i < fruitIngredients.length ; i++){
                 var fruitDiv = $("#fruitsSubmenu");
                 fruitDiv.append("<li> <label class=\"checkbox-inline\"> <input type=\"checkbox\" value=\"" + fruitIngredients[i]
                 + "\">" + fruitIngredients[i] + "</label>" + "</li>");
             }
-
+            
+            bakingGrainsIngredients.sort();
             for(var i = 0; i < bakingGrainsIngredients.length ; i++){
                 var BGSubmenuDiv = $("#BGSubmenu");
                 BGSubmenuDiv.append("<li> <label class=\"checkbox-inline\"> <input type=\"checkbox\" value=\"" + bakingGrainsIngredients[i]
