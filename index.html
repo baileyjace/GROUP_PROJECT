@@ -131,28 +131,47 @@
 
 
             <div class="line"></div>
-
-            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                <div class="flipper">
-                    <div class="front">
-                        <!-- card front content -->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                    </div>
-                    <div class="back">
-                        <!-- card back content -->
-                        <h3>Lorem Ipsum Dolor</h3>
+             
+            <div class="box">
+                <div class="row">
+                    <div class="col" id="restaurant-info">
+                        
                     </div>
                 </div>
+                <form>
+                    <div class="form-group">
+     
+                        <label for="restaurants">Restaurants</label>
+                        <input type="restaurants" class="form-control" id="restaurants" placeholder="Houston, TX">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="findRestaurants">Find Restaurant!</button>
+                </form>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Restaurants Near You</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover" id='restaurant-table'>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Cuisine</th>
+                                <th>User Rating</th>
+                                <th>Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--stuff goes here-->
+                        </tbody>
+                    </table>
+                </div>
             </div>
+ 
+            <br>
 
-            
-            <div class="line"></div>
-
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
+         
 
 
     <!-- jQuery -->

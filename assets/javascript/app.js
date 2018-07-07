@@ -383,23 +383,7 @@ $("#excludeIngredient").on("click", function(event) {
     excludedIngredientsArray.push(excludedIngredient);
     console.log(excludedIngredient);
     console.log(excludedIngredientsArray)
-})
-
-// save recipe function for results of search
-$("#save-recipe").on("click", function(event) {
-    event.preventDefault();
-
-    // needs work - what are we pulling from the api? what do we want to save?
-    var savedRecipe = {
-        recipe: recipe
-    }
-
-    database.ref().push(savedRecipe);
-
-    console.log(savedRecipe.recipe);
-
-    return false;
-});
+}) 
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
     console.log(childSnapshot.val());
